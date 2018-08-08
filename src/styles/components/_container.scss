@@ -37,3 +37,10 @@
     font-weight: bold;
   }
 }
+
+.search__show_completed {
+  cursor: pointer;
+  > :first-child {
+    margin-right: 1rem;
+  }
+}

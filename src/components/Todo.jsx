@@ -1,11 +1,12 @@
 import moment from 'moment';
 import {connect} from 'react-redux';
 import {startToggleTodo} from '../store/actions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Todo = props => {
   let {text, id, completed, createdAt, completedAt, dispatch} = props;
   let todoClassName = completed ? 'todo todo-completed' : 'todo';
-  let iconClassName = completed ? 'far fa-check-square' : 'far fa-square';
+  let iconClassName = completed ? 'check-square' : 'square';
   let renderDate = () => {
     let message = completed ? 'Completed ' : 'Created ';
     let timestamp = completed ? completedAt : createdAt;
@@ -15,7 +16,7 @@ export const Todo = props => {
   return (
     <div className={todoClassName} onClick={() => dispatch(startToggleTodo(id, !completed))}>
       <div>
-        <i className={iconClassName}> </i>
+        <FontAwesomeIcon icon={['far', iconClassName]}/>
       </div>
       <div>
         <p>{text}</p>

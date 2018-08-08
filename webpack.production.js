@@ -15,7 +15,7 @@ config.plugins = config.plugins.concat([
     threshold: 10240,
     minRatio: 0.8
   }),
-  new BundleAnalyzerPlugin()
+  new BundleAnalyzerPlugin(),
 ]);
 
 config.stats = {
@@ -29,7 +29,7 @@ config.stats = {
 
 config.optimization = {
   minimizer: [
-    new UglifyJsPlugin()
+    new UglifyJsPlugin({})
   ]
 };
 

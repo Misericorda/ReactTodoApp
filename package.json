@@ -4,15 +4,19 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "dev": "webpack-dev-server --hot --config webpack.local.js --port 3000",
-    "build": "webpack --config webpack.production.js",
-    "getProdStats": "webpack --profile --json > webpack-stats.json --config webpack.production.js"
+    "dev": "set NODE_ENV=development&&webpack-dev-server --hot --config webpack.local.js --port 3000",
+    "build": "set NODE_ENV=production&&webpack --config webpack.production.js",
+    "getProdStats": "set NODE_ENV=production&&webpack --profile --json > webpack-stats.json --config webpack.production.js"
   },
   "devDependencies": {
     "webpack-bundle-analyzer": "^2.13.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
+    "@fortawesome/free-regular-svg-icons": "^5.1.0-11",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@fortawesome/react-fontawesome": "0.1.0-11",
     "autoprefixer": "^9.1.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

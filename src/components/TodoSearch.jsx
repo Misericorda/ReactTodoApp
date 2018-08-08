@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import {setSearchText, toggleShowCompleted} from "../store/actions"
 
@@ -19,13 +20,9 @@ export const TodoSearch = props =>   {
                onChange={onSearch}
                value={searchText}/>
       </div>
-      <div>
-        <label>
-          <input type="checkbox"
-                 onChange={() => dispatch(toggleShowCompleted())}
-                 checked={showCompleted}/>
-          Show completed Todos
-        </label>
+      <div onClick={() => dispatch(toggleShowCompleted())} className="search__show_completed">
+        <FontAwesomeIcon icon={['far', showCompleted ? 'check-square': 'square']}/>
+        Show completed Todos
       </div>
     </div>
   )

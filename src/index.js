@@ -1,5 +1,7 @@
 import {render} from 'react-dom'
 import 'foundation-sites/dist/js/foundation.min'
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {faSquare, faCheckSquare} from '@fortawesome/free-regular-svg-icons'
 import configureStore from './store/configureStore';
 import {startAddTodos, login, logout} from "./store/actions"
 import App from './App'
@@ -8,13 +10,16 @@ import './styles/app.scss'
 import firebase from './api/firebase';
 import history from './router/history';
 
-$(document).ready(function () {
-  $(document).foundation()
-});
+// run foundation
+$(() => $(document).foundation());
 
+// add FA icons to be used
+library.add(faSquare, faCheckSquare);
 
+// create store
 let store = configureStore();
-console.log(process.env.NODE_ENV)
+
+// try to auth and redirect accordingly
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     store.dispatch(login(user.uid, user.email));
