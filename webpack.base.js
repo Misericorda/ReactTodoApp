@@ -7,7 +7,7 @@ const envFile = require('node-env-file');
 try {
   envFile(path.join(__dirname, 'config/' + process.env.NODE_ENV + '.env'))
 } catch (e) {
-  alert('Could not find env file!')
+  alert('Could not find env file!');
   throw e
 }
 
@@ -52,7 +52,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      title: 'React Boilerplate'
+      title: 'React Todo App'
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.EnvironmentPlugin({
