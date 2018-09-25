@@ -1,12 +1,13 @@
-import {connect} from 'react-redux';
-import {startAddTodo} from "../store/actions"
+import React from "react";
+import {connect} from "react-redux";
+import {startAddTodo} from "../store/actions";
 
 export class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      todoText: ''
-    }
+      todoText: ""
+    };
   }
 
   onAddTodo(e) {
@@ -14,7 +15,7 @@ export class TodoForm extends React.Component {
     let {dispatch} = this.props;
     let {todoText} = this.state;
     if (todoText.trim()) {
-      this.setState({todoText: ''});
+      this.setState({todoText: ""});
       dispatch(startAddTodo(todoText));
     } else {
       this.todoRef.focus();
@@ -33,7 +34,7 @@ export class TodoForm extends React.Component {
           <button disabled={!this.state.todoText.trim()} className="expanded button primary">Add Todo</button>
         </form>
       </div>
-    )
+    );
   }
 }
 

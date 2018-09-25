@@ -1,27 +1,27 @@
-import moment from 'moment';
+import moment from "moment";
 
-import {firebaseRef} from '../../api/firebase';
-import {ADD_TODOS, ADD_TODO, UPDATE_TODO} from "./actionTypes"
+import {firebaseRef} from "../../api/firebase";
+import {ADD_TODOS, ADD_TODO, UPDATE_TODO} from "./actionTypes";
 
 export let addTodo = (todo) => {
   return {
     type: ADD_TODO,
     todo
-  }
+  };
 };
 
 export let addTodos = (todos) => {
   return {
     type: ADD_TODOS,
     todos: todos
-  }
+  };
 };
 export let updateTodo = (id, updates) => {
   return {
     type: UPDATE_TODO,
     id,
     updates
-  }
+  };
 };
 
 export let startAddTodos = () => {
@@ -29,7 +29,7 @@ export let startAddTodos = () => {
     let uid = getState().auth.uid;
     let todosRef = firebaseRef.child(`users/${uid}/todos`);
 
-    return todosRef.once('value').then((snapshot) => {
+    return todosRef.once("value").then((snapshot) => {
       let todos = snapshot.val() || {};
       let parsedTodos = [];
       Object.keys(todos).forEach((todoId) => {
@@ -58,8 +58,8 @@ export let startAddTodo = (text) => {
       dispatch(addTodo({
         ...todo,
         id: todoRef.key
-      }))
-    })
+      }));
+    });
   };
 };
 
@@ -73,7 +73,7 @@ export let startToggleTodo = (id, completed) => {
     };
     return todoRef.update(updates).then(() => {
       dispatch(updateTodo(id, updates));
-    })
+    });
   };
 };
 

@@ -1,10 +1,11 @@
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import TodoList from './TodoList';
-import TodoForm from './TodoForm';
-import TodoSearch from './TodoSearch';
+import React from "react";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import TodoList from "./TodoList";
+import TodoForm from "./TodoForm";
+import TodoSearch from "./TodoSearch";
 
-import {startLogout} from "../store/actions"
+import {startLogout} from "../store/actions";
 
 export const TodoApp = props => (
   <div>
@@ -39,4 +40,4 @@ function mapDispatchToProps(dispatch) {
   }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoApp)
+export default connect(mapStateToProps, mapDispatchToProps)(TodoApp);

@@ -1,10 +1,11 @@
-import {connect} from 'react-redux';
+import React from "react";
+import {connect} from "react-redux";
 import {startLogin} from "../store/actions";
 
 export class Login extends React.Component {
   onLogin = () => {
     let {dispatch} = this.props;
-    dispatch(startLogin())
+    dispatch(startLogin());
   };
 
   render() {
@@ -21,8 +22,8 @@ export class Login extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default connect()(Login)
+export default connect()(Login);

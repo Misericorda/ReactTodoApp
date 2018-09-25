@@ -1,5 +1,5 @@
-import {combineReducers} from 'redux'
-import {createReducer} from 'redux-create-reducer';
+import {combineReducers} from "redux";
+import {createReducer} from "redux-create-reducer";
 import {
   TOGGLE_SHOW_COMPLETED,
   SET_SEARCH_TEXT,
@@ -8,17 +8,17 @@ import {
   UPDATE_TODO,
   LOGIN,
   LOGOUT
-} from "../actions/actionTypes"
+} from "../actions/actionTypes";
 
 
-const searchTextReducer = createReducer('', {
+const searchTextReducer = createReducer("", {
   [SET_SEARCH_TEXT](state, action) {
     return action.searchText;
   },
 });
 
 const showCompletedReducer = createReducer(false, {
-  [TOGGLE_SHOW_COMPLETED](state, action) {
+  [TOGGLE_SHOW_COMPLETED](state) {
     return !state;
   },
 });
@@ -30,20 +30,20 @@ const todoReducer = createReducer([], {
         return {
           ...todo,
           ...action.updates
-        }
+        };
       } else {
-        return todo
+        return todo;
       }
     });
   },
   [ADD_TODO](state, action) {
-    return [...state, action.todo]
+    return [...state, action.todo];
   },
   [ADD_TODOS](state, action) {
-    return [...state, ...action.todos]
+    return [...state, ...action.todos];
   },
-  [LOGOUT](state, action) {
-    return []
+  [LOGOUT]() {
+    return [];
   }
 });
 
@@ -54,8 +54,8 @@ const authReducer = createReducer({}, {
       email: action.email
     };
   },
-  [LOGOUT](state, action) {
-    return {}
+  [LOGOUT]() {
+    return {};
   }
 });
 

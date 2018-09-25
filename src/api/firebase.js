@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
-import 'firebase/auth';
-import 'firebase/database';
+import "firebase/auth";
+import "firebase/database";
 
 try {
   const config = {
@@ -13,7 +13,7 @@ try {
   };
   firebase.initializeApp(config);
 } catch (e) {
-
+  console.log(e);
 }
 
 export let githubProvider = new firebase.auth.GithubAuthProvider();

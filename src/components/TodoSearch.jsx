@@ -1,15 +1,15 @@
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from "react";
+import {connect} from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import {setSearchText, toggleShowCompleted} from "../store/actions"
+import {setSearchText, toggleShowCompleted} from "../store/actions";
 
 export const TodoSearch = props =>   {
   let {dispatch, showCompleted, searchText} = props;
 
   let onSearch = (e) => {
     let text = e.target.value.toLowerCase();
-    dispatch(setSearchText(text))
+    dispatch(setSearchText(text));
   };
 
   return (
@@ -21,11 +21,11 @@ export const TodoSearch = props =>   {
                value={searchText}/>
       </div>
       <div onClick={() => dispatch(toggleShowCompleted())} className="search__show_completed">
-        <FontAwesomeIcon icon={['far', showCompleted ? 'check-square': 'square']}/>
+        <FontAwesomeIcon icon={["far", showCompleted ? "check-square": "square"]}/>
         Show completed Todos
       </div>
     </div>
-  )
+  );
 };
 
 export default connect(
@@ -33,6 +33,6 @@ export default connect(
     return {
       showCompleted: state.showCompleted,
       searchText: state.searchText
-    }
+    };
   }
-)(TodoSearch)
+)(TodoSearch);
